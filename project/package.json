@@ -1,0 +1,10 @@
+{
+  "name": "k8s-101-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tiny stateless web app for the Kubernetes 101 labspace",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

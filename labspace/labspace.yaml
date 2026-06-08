@@ -1,25 +1,35 @@
 metadata:
-  id: ajeetraina/labspace-kubernetes-101
+  id: kubernetes-101
   sourceRepo: github.com/ajeetraina/labspace-kubernetes-101
-  contentVersion: abcd123 # Will be filled in during CI
+  contentVersion: 1.0.0
 
-title: Labspace starter
+title: Kubernetes 101
 description: |
-  A basic template for creating a Labspace, including all of the boilerplate needed to write and publish a Labspace.
+  Learn Kubernetes fundamentals hands-on by deploying a real app to a live cluster —
+  Pods, Deployments, Services, scaling, rolling updates, and Ingress.
 
 sections:
-  - title: Introduction
+  - title: Introduction & Your Cluster
     contentPath: 01-introduction.md
-  - title: Main Content 1
-    contentPath: 02-main-content.md
-  - title: Conclusion
-    contentPath: 03-conclusion.md
+  - title: Pods
+    contentPath: 02-pods.md
+  - title: Deployments
+    contentPath: 03-deployments.md
+  - title: Services
+    contentPath: 04-services.md
+  - title: Scaling & Rolling Updates
+    contentPath: 05-scaling-and-updates.md
+  - title: Exposing Your App with Ingress
+    contentPath: 06-ingress.md
+  - title: 'Bonus: Compose → Kubernetes with Compose Bridge'
+    contentPath: 07-compose-bridge.md
+  - title: 'Bonus: Talk to Your Model & Wrap-Up'
+    contentPath: 08-genai-on-kubernetes.md
 
-# Services are used to add default tabs in the Labspace interface.
-# The IDE will always be present as a service, but you can add additional services as needed.
+# Services add default tabs in the Labspace interface alongside the IDE.
 # Icon values come from https://fonts.google.com/icons/
 services:
   - id: app
-    url: http://localhost:3000
-    title: App
-    icon: anchor
+    title: Your App
+    url: http://app.dockerlabs.xyz
+    icon: web

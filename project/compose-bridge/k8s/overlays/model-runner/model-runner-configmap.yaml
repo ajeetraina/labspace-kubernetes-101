@@ -1,0 +1,13 @@
+#! model-runner-configmap.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: docker-model-runner-init
+    namespace: genai-demo
+    labels:
+        com.docker.compose.project: genai-demo
+        com.docker.model.runner: "true"
+data:
+    models: |
+        ai/smollm2

@@ -1,0 +1,37 @@
+#! webchat-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: webchat
+    namespace: genai-demo
+    labels:
+        com.docker.compose.project: genai-demo
+        com.docker.compose.service: webchat
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: genai-demo
+            com.docker.compose.service: webchat
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: genai-demo
+                com.docker.compose.service: webchat
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: webchat
+                  image: nginx:alpine
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: MODEL_URL
+                      value: "http://docker-model-runner/engines/v1/"
+                    - name: MODEL_NAME
+                      value: "ai/smollm2"
+                  ports:
+                    - name: webchat-80
+                      containerPort: 80
