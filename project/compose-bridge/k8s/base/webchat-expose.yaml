@@ -1,0 +1,18 @@
+#! webchat-expose.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: webchat
+    namespace: genai-demo
+    labels:
+        com.docker.compose.project: genai-demo
+        com.docker.compose.service: webchat
+spec:
+    selector:
+        com.docker.compose.project: genai-demo
+        com.docker.compose.service: webchat
+    ports:
+        - name: webchat-80
+          port: 80
+          targetPort: webchat-80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  containers:
+    - name: web
+      image: registry.dockerlabs.xyz/k8s-101/web:1.0
+      ports:
+        - containerPort: 3000

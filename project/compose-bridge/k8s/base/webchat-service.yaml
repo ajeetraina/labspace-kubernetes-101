@@ -1,0 +1,21 @@
+# check if there is at least one published port
+
+#! webchat-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: webchat-published
+    namespace: genai-demo
+    labels:
+        com.docker.compose.project: genai-demo
+        com.docker.compose.service: webchat
+spec:
+    selector:
+        com.docker.compose.project: genai-demo
+        com.docker.compose.service: webchat
+    ports:
+        - name: webchat-8080
+          port: 8080
+          protocol: TCP
+          targetPort: webchat-80

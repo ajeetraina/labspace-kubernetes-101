@@ -1,0 +1,8 @@
+#! 0-genai-demo-namespace.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: genai-demo
+    labels:
+        com.docker.compose.project: genai-demo

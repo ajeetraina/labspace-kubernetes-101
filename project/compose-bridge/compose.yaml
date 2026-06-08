@@ -1,0 +1,15 @@
+name: genai-demo
+
+services:
+  webchat:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    models:
+      assistant:
+        endpoint_var: MODEL_URL
+        model_var: MODEL_NAME
+
+models:
+  assistant:
+    model: ai/smollm2
