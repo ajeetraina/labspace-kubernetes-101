@@ -12,13 +12,13 @@ Right now you have 3 replicas. Imagine traffic is spiking and you need more.
     kubectl scale deployment web --replicas=5
     ```
 
-2. Watch the two new pods appear:
+2. Watch the two new pods appear — and use `-o wide` to see **which node** each one landed on:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -o wide
     ```
 
-    `5` pods now — and your Service automatically started load-balancing across all of them. No Service changes needed.
+    `5` pods now, and notice the `NODE` column: the scheduler spread them across your three nodes. Your Service automatically started load-balancing across all of them — no Service changes needed. This is Kubernetes packing work onto whatever capacity the cluster has.
 
 3. Traffic calmed down? Scale back to 2:
 

@@ -25,7 +25,7 @@ There's no cluster setup to do. This labspace already includes a fully running *
     kubectl get nodes
     ```
 
-    You should see one node with a `STATUS` of `Ready`. That single node is your whole cluster for this lab.
+    You should see **three** nodes with a `STATUS` of `Ready` — one `control-plane` node (which also runs workloads) and two worker nodes (`<none>` role). Together they form your cluster for this lab, so you'll get to see how Kubernetes spreads work across multiple machines.
 
 2. Look at the pods already running across **all** namespaces. These keep Kubernetes itself working:
 

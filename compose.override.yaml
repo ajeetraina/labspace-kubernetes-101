@@ -12,3 +12,45 @@ services:
       # This is a pure Kubernetes lab — it does not use the Gitea CI/CD pipeline,
       # so skip the automatic CI secret setup.
       SKIP_CI_SECRET_SETUP: "true"
+
+  # --- Extra worker nodes: make the lab cluster 3 nodes (1 server + 2 agents) ---
+  # The SDLC base runs a single k3s server. These two agents join it using the
+  # base's fixed token and the API server's TLS SAN (k8s.dockerlabs.xyz), giving
+  # learners a realistic multi-node cluster. The image tag MUST match the k3s
+  # server in the SDLC base (rancher/k3s:v1.35.3-k3s1).
+  k3s-agent-1:
+    image: rancher/k3s:v1.35.3-k3s1
+    command: ["agent"]
+    privileged: true
+    restart: unless-stopped
+    tmpfs:
+      - /run
+      - /var/run
+    environment:
+      K3S_URL: https://k8s.dockerlabs.xyz:6443
+      K3S_TOKEN: labspace-k3s-token
+    configs:
+      # So this node can also pull images from the in-cluster registry.
+      - source: k3s-registry-config
+        target: /etc/rancher/k3s/registries.yaml
+    depends_on:
+      k3s:
+        condition: service_healthy
+
+  k3s-agent-2:
+    image: rancher/k3s:v1.35.3-k3s1
+    command: ["agent"]
+    privileged: true
+    restart: unless-stopped
+    tmpfs:
+      - /run
+      - /var/run
+    environment:
+      K3S_URL: https://k8s.dockerlabs.xyz:6443
+      K3S_TOKEN: labspace-k3s-token
+    configs:
+      - source: k3s-registry-config
+        target: /etc/rancher/k3s/registries.yaml
+    depends_on:
+      k3s:
+        condition: service_healthy
