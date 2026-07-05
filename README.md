@@ -1,4 +1,4 @@
-# Kubernetes 101 — a hands-on Labspace
+# Kubernetes 101 — A Hands-on Labspace
 
 Learn Kubernetes fundamentals **hands-on** by deploying a real application to a live, multi-node cluster — no cloud account, no cluster setup, just your browser and Docker.
 
