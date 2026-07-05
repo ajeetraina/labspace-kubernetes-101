@@ -4,7 +4,7 @@ Learn Kubernetes fundamentals **hands-on** by deploying a real application to a 
 
 This is a [Labspace](https://github.com/dockersamples/labspace-infra): a self-contained, interactive lab that runs entirely in Docker. It ships with a real **k3s** cluster (1 server + 2 agents), `kubectl` pre-configured, an in-cluster registry, and a Traefik ingress controller — all running beside a browser-based IDE and terminal.
 
-## 📚 What you'll learn
+## What you'll learn
 
 The lab is split into 8 sections (six core + two bonus):
 
